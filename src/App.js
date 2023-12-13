@@ -2,17 +2,20 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import { useEffect } from "react";
-import { setPosts } from "./redux/actions/postActions/postActions";
 import { useSelector, useDispatch } from "react-redux";
+import {
+    setPostsRequest,
+    setPostsSuccess,
+} from "./redux/actions/postActions/postActions";
 
 function App() {
-    const posts = useSelector((state) => state.post);
+    const posts = useSelector((state) => state.post.posts);
     const dispatch = useDispatch();
-    console.log(posts);
 
     useEffect(() => {
-        dispatch(setPosts());
+        dispatch(setPostsRequest());
     }, [dispatch]);
+    console.log(posts);
     return (
         <div className="App">
             <header className="App-header">
