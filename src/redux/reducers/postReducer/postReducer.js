@@ -11,9 +11,9 @@ export const postReducer = (state = initialState, action) => {
         case SET_POSTS_REQUEST:
             return { ...state, loading: true, error: null };
         case SET_POSTS_SUCCESS:
-            return { ...state, loading: false, data: action.payload };
+            return { ...state, loading: false, posts: action.payload };
         case SET_POSTS_FAILURE:
-            return { ...state, loading: false, data: action.payload };
+            return { ...state, loading: false, posts: action.payload };
         default:
             return state;
     }

@@ -9,12 +9,12 @@ import {
     setPostsSuccess,
     setPostsFailure,
 } from "../../actions/postActions/postActions";
+import { getPostsApi } from "./postApi";
 
 function* fetchPosts() {
     try {
-        const data = yield call(
-            axios.get("https://jsonplaceholder.typicode.com/posts")
-        );
+        //yield call(getPostsApi()); I was not sending function, but was sending the function call, hence it was failing now its correct
+        const data = yield call(getPostsApi);
         yield put(setPostsSuccess(data));
     } catch (error) {
         yield put(setPostsFailure(error));
@@ -22,7 +22,7 @@ function* fetchPosts() {
 }
 
 function* postSaga() {
-    yield takeEvery(SET_POSTS_SUCCESS, fetchPosts);
+    yield takeLatest(SET_POSTS_REQUEST, fetchPosts);
 }
 
 export default postSaga;
