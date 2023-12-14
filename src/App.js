@@ -16,6 +16,7 @@ function App() {
         dispatch(setPostsRequest());
     }, [dispatch]);
 
+    console.log(posts);
     return (
         <div className="App">
             <header className="App-header">

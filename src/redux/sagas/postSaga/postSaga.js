@@ -14,7 +14,7 @@ import { getPostsApi } from "./postApi";
 function* fetchPosts() {
     try {
         //yield call(getPostsApi()); I was not sending function, but was sending the function call, hence it was failing now its correct
-        const data = yield call(getPostsApi);
+        const data = yield getPostsApi();
         yield put(setPostsSuccess(data));
     } catch (error) {
         yield put(setPostsFailure(error));
