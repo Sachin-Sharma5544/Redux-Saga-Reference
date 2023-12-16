@@ -14,6 +14,7 @@ const PostsComponent = () => {
     return (
         <div className="posts__component">
             <ul className="posts__list">
+                <h2>Posts</h2>
                 {posts.map((item) => (
                     <li>
                         <input type="radio" name="post"></input>
