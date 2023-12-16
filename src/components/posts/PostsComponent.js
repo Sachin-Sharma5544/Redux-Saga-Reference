@@ -1,14 +1,8 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setPostsRequest } from "../../redux/actions/postActions/postActions";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const PostsComponent = () => {
     const posts = useSelector((state) => state.post.posts);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(setPostsRequest());
-    }, [dispatch]);
 
     console.log(posts);
     return (
