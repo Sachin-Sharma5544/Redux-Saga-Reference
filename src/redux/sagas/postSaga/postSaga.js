@@ -14,11 +14,11 @@ import { getPostsApi } from "./postApi";
 function* fetchPosts() {
     try {
         //yield call(getPostsApi()); I was not sending function, but was sending the function call, hence it was failing now its correct
-        const data = yield call(
+        const response = yield call(
             getPostsApi,
             "https://jsonplaceholder.typicode.com/posts"
         );
-        yield put(setPostsSuccess(data));
+        yield put(setPostsSuccess(response.data));
     } catch (error) {
         yield put(setPostsFailure(error));
     }
