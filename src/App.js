@@ -1,7 +1,7 @@
 import "./App.css";
-import FetchPostsButton from "./components/FetchButton/FetchPostsButton";
-import PostComponent from "./components/post/PostComponent";
-import PostsComponent from "./components/posts/PostsComponent";
+import FetchPostsButton from "./components/app components/FetchButton/FetchPostsButton";
+import PostComponent from "./components/app components/post/PostComponent";
+import PostsComponent from "./components/app components/posts/PostsComponent";
 
 function App() {
     return (
