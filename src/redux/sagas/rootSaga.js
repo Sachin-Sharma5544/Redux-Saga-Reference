@@ -1,6 +1,6 @@
 import { all } from "redux-saga/effects";
-import postSaga from "./postSaga/postSaga";
+import { postSaga, selectedPostSaga } from "./postSaga/postSaga";
 
 export function* rootSaga() {
-    yield all([postSaga()]);
+    yield all([postSaga(), selectedPostSaga()]);
 }

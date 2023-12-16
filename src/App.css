@@ -4,7 +4,7 @@
   overflow-y: auto;
   margin: 20px 30px;
   border-radius: 10px;
-  padding: 20px 30px;
+  padding: 20px 0px;
   color: white;
 }
 
@@ -27,6 +27,13 @@
 }
 .posts__list li p{
   padding-left: 30px;
+}
+
+.post__component h4{
+  margin-bottom: 0px;
+}
+.post__component p{
+  margin-top: 0px;
 }
 
 .fetch__button {

@@ -1,15 +1,14 @@
-import { call, put, takeLatest, takeEvery } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import {
-    SET_POSTS_FAILURE,
     SET_POSTS_REQUEST,
-    SET_POSTS_SUCCESS,
+    SET_SELECTED_POST_REQUEST,
 } from "../../actions/actionConstants";
-import axios from "axios";
 import {
     setPostsSuccess,
     setPostsFailure,
+    setSelectedPost,
 } from "../../actions/postActions/postActions";
-import { getPostsApi } from "./postApi";
+import { getPostsApi, getPostById } from "./postApi";
 
 function* fetchPosts() {
     try {
@@ -28,4 +27,21 @@ function* postSaga() {
     yield takeLatest(SET_POSTS_REQUEST, fetchPosts);
 }
 
-export default postSaga;
+function* fetchSelectedPost(action) {
+    try {
+        const response = yield getPostById(
+            `https://jsonplaceholder.typicode.com/posts/${action.payload}`
+        );
+
+        console.log("Selected post ", response?.data);
+        yield put(setSelectedPost(response?.data));
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function* selectedPostSaga() {
+    yield takeLatest(SET_SELECTED_POST_REQUEST, fetchSelectedPost);
+}
+
+export { postSaga, selectedPostSaga };
