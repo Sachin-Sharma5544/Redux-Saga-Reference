@@ -6,8 +6,6 @@ const PostsComponent = () => {
     const posts = useSelector((state) => state.post.posts);
     const dispatch = useDispatch();
 
-    console.log(posts);
-
     const handleItemClick = (id) => {
         dispatch(setSelectedPostRequest(id));
     };

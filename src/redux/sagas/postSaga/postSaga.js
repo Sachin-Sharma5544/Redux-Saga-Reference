@@ -32,8 +32,6 @@ function* fetchSelectedPost(action) {
         const response = yield getPostById(
             `https://jsonplaceholder.typicode.com/posts/${action.payload}`
         );
-
-        console.log("Selected post ", response?.data);
         yield put(setSelectedPost(response?.data));
     } catch (error) {
         console.log(error);

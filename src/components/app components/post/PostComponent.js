@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const PostComponent = () => {
     const selectedPost = useSelector((state) => state.post.selectedPost);
-    console.log("Selected post ", selectedPost);
 
     return (
         <div className="post__component">
